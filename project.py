@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         self.exit.setToolTip("Close the App")
 
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setGeometry(QtCore.QRect(23, 55, 750, 450))
+        self.plainTextEdit.setGeometry(QtCore.QRect(23, 30, 750, 480))
         self.plainTextEdit.setObjectName("plainTextEdit")
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -38,10 +38,13 @@ class Ui_MainWindow(object):
         self.exit.clicked.connect(sys.exit)
 
     def run_command(self):
-        txt = "cut -d ' ' -f 3,4,5  /proc/cmdline"
-        process = subprocess.Popen(txt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        cmd = "cut -d ' ' -f 3,4,5,6  /proc/cmdline | tee output.txt" #Gets the boot options and writes to a file
+        process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         out, err = process.communicate()
-        self.plainTextEdit.insertPlainText(str(out, "utf-8"))
+        opt = "awk -f options.awk output.txt"
+        options = subprocess.Popen(opt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        opts, err = options.communicate()
+        self.plainTextEdit.insertPlainText(str(opts, "utf-8"))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

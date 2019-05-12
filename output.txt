@@ -1,0 +1,1 @@
+ro quiet splash vt.handoff=1

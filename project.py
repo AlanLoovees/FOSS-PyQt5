@@ -40,8 +40,8 @@ class Ui_MainWindow(object):
     def run_command(self):
         cmd = "cut -d ' ' -f 3,4,5,6  /proc/cmdline | tee output.txt" #Gets the boot options and writes to a file
         process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        out, err = process.communicate()
-        opt = "awk -f options.awk output.txt"
+        
+        opt = "awk -f options.awk output.txt" #Uses AWK to process the output file
         options = subprocess.Popen(opt, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         opts, err = options.communicate()
         self.plainTextEdit.insertPlainText(str(opts, "utf-8"))

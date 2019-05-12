@@ -14,7 +14,7 @@ class Ui_MainWindow(object):
         self.command = QtWidgets.QPushButton(self.centralwidget)
         self.command.setGeometry(QtCore.QRect(250, 533, 100, 40))
         self.command.setObjectName("command")
-        self.command.setToolTip("Runs the command")
+        self.command.setToolTip("Shows the boot options")
 
         self.exit = QtWidgets.QPushButton(self.centralwidget)
         self.exit.setGeometry(QtCore.QRect(450, 533, 100, 40))

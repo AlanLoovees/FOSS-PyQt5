@@ -17,7 +17,7 @@
     if ($1=="vt.handoff=1"||$2=="vt.handoff=1"||$3=="vt.handoff=1"||$4=="vt.handoff=1")
     {
         print "vt.handoff\n"
-        print "This options is unique to Ubuntu. Its purpose is to allow the kernel to maintain the current contents of video memory on a virtual terminal. So, when the operating system is booting up, when it moves past the boot loader, vt.handoff allows showing of an aubergine background, with Plymouth displaying a logo and progress indicator bar on top of this. Once the display manager comes up, it smoothly replaces this with a login prompt.\n\n"
+        print "This option is unique to Ubuntu. Its purpose is to allow the kernel to maintain the current contents of video memory on a virtual terminal. So, when the operating system is booting up, when it moves past the boot loader, vt.handoff allows showing of an aubergine background, with Plymouth displaying a logo and progress indicator bar on top of this. Once the display manager comes up, it smoothly replaces this with a login prompt.\n\n"
     }
     if ($1=="nomodeset"||$2=="nomodeset"||$3=="nomodeset"||$4=="nomodeset")
     {
